@@ -1,0 +1,98 @@
+###
+GET http://localhost:8080/api/sock/hello
+
+###
+POST http://localhost:8080/api/sock
+Content-Type: application/json
+
+{
+  "color": "GREEN",
+  "size": "S",
+  "cottonPart": "50",
+  "quantity": 10
+}
+###
+GET http://localhost:8080/api/sock?color=GREEN
+
+###
+PUT http://localhost:8080/api/sock
+Content-Type: application/json
+
+{
+  "color": "GREEN",
+  "size": "S",
+  "cottonPart": "50",
+  "quantity": 5
+}
+
+###
+DELETE http://localhost:8080/api/sock
+Content-Type: application/json
+
+{
+  "color": "GREEN",
+  "size": "S",
+  "cottonPart": "50",
+  "quantity": 2
+}
+
+###
+POST http://localhost:8080/api/sock
+Content-Type: application/json
+
+{
+  "color": "BLUE",
+  "size": "S",
+  "cottonPart": "90",
+  "quantity": 10
+}
+
+###
+GET http://localhost:8080/api/sock?color=BLUE
+
+###
+PUT http://localhost:8080/api/sock
+Content-Type: application/json
+
+{
+  "color": "BLUE",
+  "size": "S",
+  "cottonPart": "50",
+  "quantity": 5
+}
+
+
+###
+GET http://localhost:8080/api/sock
+
+
+###
+GET http://localhost:8080/api/sock?cottonMin=60
+
+
+###
+PUT http://localhost:8080/api/sock
+Content-Type: application/json
+
+{
+  "color": "RED",
+  "size": "S",
+  "cottonPart": "50",
+  "quantity": 5
+}
+
+###
+PUT http://localhost:8080/api/sock
+Content-Type: application/json
+
+{
+  "color": "RED",
+  "size": "S",
+  "cottonPart": "-10",
+  "quantity": 5
+}
+
+
+
+###
+GET http://localhost:8080/api/sock?cottonMin
