@@ -15,36 +15,36 @@ public class SockService {
 
     private final Map<Sock, Integer> socksMap = new HashMap<>();
 
-    public void addSock(SockRequest sockRequest) {                                                      //добавить носок
+    public void addSock(SockRequest sockRequest) {
         validateRequest(sockRequest);
         Sock sock = mapToSock(sockRequest);
-        if (socksMap.containsKey(sock)) {                                         //Если мапа содержит носок
-            socksMap.put(sock, socksMap.get(sock) + sockRequest.getQuantity());   //то добавляем измененные значения(носок и кол-во)
+        if (socksMap.containsKey(sock)) {
+            socksMap.put(sock, socksMap.get(sock) + sockRequest.getQuantity());
         } else {
-            socksMap.put(sock, sockRequest.getQuantity());                        //Если нет, то добавляем носок и запрос количества
+            socksMap.put(sock, sockRequest.getQuantity());
         }
 
     }
 
-    public void issueSock(SockRequest sockRequest) {                                                   //отгрузка носков
+    public void issueSock(SockRequest sockRequest) {
         decreaseSockQuantity(sockRequest);
     }
-    public void removeDefectiveSocks(SockRequest sockRequest) {                                          //Выкинуть брак
+    public void removeDefectiveSocks(SockRequest sockRequest) {
         decreaseSockQuantity(sockRequest);
     }
 
     private  void decreaseSockQuantity(SockRequest sockRequest){
         validateRequest(sockRequest);
         Sock sock = mapToSock(sockRequest);
-        int sockQuantity = socksMap.getOrDefault(sock, 0);             //узнаём сколько осталось носков
+        int sockQuantity = socksMap.getOrDefault(sock, 0);
         if (sockQuantity >= sockRequest.getQuantity()) {
             socksMap.put(sock, sockQuantity - sockRequest.getQuantity());
         } else {
-            throw new InSufficientSockQuantityException("Носков больше нет");
+            throw new InSufficientSockQuantityException("Параметры запроса отсутствуют или имеют некорректный формат");
         }
     }
 
-    public int getSockQuantity(Color color, Size size, Integer cottonMin, Integer cottonMax) {         //получить кол-во
+    public int getSockQuantity(Color color, Size size, Integer cottonMin, Integer cottonMax) {
 
         int total = 0;
         for (Map.Entry<Sock, Integer> entry : socksMap.entrySet()) {
@@ -65,7 +65,7 @@ public class SockService {
         return total;
     }
 
-    private void validateRequest(SockRequest sockRequest) {                                         //подтвердить запрос
+    private void validateRequest(SockRequest sockRequest) {
         if (sockRequest.getColor() == null || sockRequest.getSize() == null) {
             throw new InvalidSockRequestException("Все поля должны быть заполнены");
         }
@@ -78,7 +78,7 @@ public class SockService {
     }
 
 
-    private Sock mapToSock(SockRequest sockRequest) {                                          //Создает карту с носками
+    private Sock mapToSock(SockRequest sockRequest) {
         return new Sock(
                 sockRequest.getColor(),
                 sockRequest.getSize(),

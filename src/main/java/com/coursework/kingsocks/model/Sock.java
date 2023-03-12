@@ -7,7 +7,7 @@ public class Sock {
 
     private final Color color;
     private final Size size;
-    private final int cottonPart;   //процентное соотношение хлопка
+    private final int cottonPart;
 
     public Sock(Color color, Size size, int cottonPart) {
         this.color = color;

@@ -4,7 +4,7 @@ import com.coursework.kingsocks.model.Color;
 import com.coursework.kingsocks.model.Size;
 
 
-public class SockRequest {   //Класс "Запрос"
+public class SockRequest {
 
     private Color color;
     private Size size;
