@@ -96,3 +96,14 @@ Content-Type: application/json
 
 ###
 GET http://localhost:8080/api/sock?cottonMin
+
+###
+PUT http://localhost:8080/api/sock
+Content-Type: application/json
+
+{
+  "color": "RED",
+  "size": "S",
+  "cottonPart": "50",
+  "quantity": 5
+}

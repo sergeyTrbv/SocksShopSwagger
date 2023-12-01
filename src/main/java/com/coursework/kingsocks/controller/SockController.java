@@ -23,7 +23,6 @@ import org.springframework.web.bind.annotation.*;
 @Tag(name = "Носки", description = "CRUD-операции для работы с товаром на складе")
 public class SockController {
 
-
     private final SockService sockService;
 
     public SockController(SockService sockService) {

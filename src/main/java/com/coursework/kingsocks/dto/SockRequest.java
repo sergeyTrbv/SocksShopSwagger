@@ -9,7 +9,7 @@ public class SockRequest {
     private Color color;
     private Size size;
     private int cottonPart;
-    private int quantity;   //количество
+    private int quantity;
 
     public Color getColor() {
         return color;
